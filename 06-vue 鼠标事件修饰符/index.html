@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>VueJS Tutorials</title>
+        <link href="styles.css" rel="stylesheet" />
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="vue-app">
+            <h1>Events</h1>
+            <!-- 给绑定事件一个执行一次的修饰符, 该按钮绑定事件只能执行一次 -->
+            <button v-on:click.once="add(1)">Add a Year</button>
+            <button v-on:click="subtract(1)">Subtract a Year</button>
+            <button v-on:dblclick="add(10)">Add 10 Years</button>
+            <button v-on:dblclick="subtract(10)">Subtract 10 Years</button>
+            <p>My age is {{age}}</p>
+            <!-- 给绑定事件一个监听器捕获的修饰符 -->
+            <div id="canvas" v-on:mousemove.capture="updateXY">{{ x }} , {{ y }}</div>
+            <!-- 给绑定事件一个阻止默认操作修饰符, 点击后不会执行跳转页面的操作 -->
+            <p><a v-on:click.prevent="click" href="http://www.thenetninja.co.uk">The Net Ninja</a></p>
+        </div>
+    </body>
+
+    <script src="app.js"></script>
+</html>

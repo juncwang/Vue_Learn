@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>VueJS Tutorials</title>
+        <link href="styles.css" rel="stylesheet" />
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="vue-app">
+            <h1>Data Binding</h1>
+            <!-- 把 vue 属性赋给标签属性, 并进行绑定 -->
+            <p><a v-bind:href="website">The Net Ninja Website</a></p>
+            <!-- 把 vue 属性当作标签的 html 内容, 并进行绑定 -->
+            <p v-html="websiteTag"></p>
+            <p><input type="text" v-bind:value="name" /></p>
+        </div>
+    </body>
+
+    <script src="app.js"></script>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>VueJS Tutorials</title>
+        <link href="styles.css" rel="stylesheet" />
+        <script src="https://unpkg.com/vue"></script>
+    </head>
+    <body>
+        <div id="vue-app">
+            <h1>Keyboard Events</h1>
+            <label>Name:</label>
+            <!-- 键盘修饰符 按键抬起 enter 建时调用方法 -->
+            <input type="text" v-on:keyup.enter="logName" />
+            <label>Age:</label>
+            <!-- 键盘修饰符 按下 alt 建,按键抬起 enter 建时调用方法 -->
+            <input type="text" v-on:keyup.alt.enter="logAge" />
+        </div>
+    </body>
+
+    <script src="app.js"></script>
+</html>
