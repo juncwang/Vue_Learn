@@ -153,7 +153,7 @@
     * 使用方法4: `<div v-for="(val, key) in ninja">` 可以遍历对象 第一个参数为属性值, 第二个参数为属性名称
     * 实现 html 循环
 
-13. vue 实战DEMO
+### 13. vue 实战DEMO
     * 使用 vue 实现小游戏
 
 14. vue 初始化多个 vue 对象
@@ -181,7 +181,7 @@
     <TestComponent></TestComponent>
     ```
 
-16. vue 脚手架 cli
+### 16. vue 脚手架 cli
     * 安装 vue-cli
         * `npm install -g vue-cli`              安装全局 vue-cli
         * `vue init webpack project_name`       使用 vue webpack 创建项目 (注意: 必须先安装 webpack)
@@ -204,3 +204,30 @@
         * `<template>` html 文件内容
         * `<script>` js 文件内容
         * `<style>` css 文件内容
+
+18. vue 组件嵌套
+    * 全局组件调用
+        * 在 `main.js` 文件内对组件进行导入
+            ```js
+            import Ninjas from './Ninjas.vue'
+            Vue.component('ninjas', Ninjas);
+            ```
+            * 这样就可以在 html 页面或其他 js vue 文件内直接使用 `<ninjas/>` 调用组件内容
+    * 组件调用
+        * 在 组件或 `App.vue` 中对组件进行导入
+            ```js
+            import Ninjas from './Ninjas.vue'
+            export default {
+                components: {
+                    'ninjas': Ninjas
+                }
+            }
+            ```
+            * 这样就可以在该页面中使用导入的组件 `<ninjas/>` 
+
+19. vue 组件 css 作用域
+    * 组件在写样式的时候加入 scoped 关键字实现样式分离
+    * `<style scoped></style>`
+    * 不加关键字, 就一定会影响到其他组件的样式
+
+### 20. vue 实战DEMO(组件嵌套)
