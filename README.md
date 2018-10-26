@@ -35,14 +35,14 @@
     * 在方法内调用内部属性使用 `this.属性名`
     * 在方法内使用外部元素需要利用方法的参数接受
 
-04. vue 属性绑定
+04. vue 属性绑定 v-bind v-html
     * 在 `html` 文件标签内绑定属性值需要中属性前面加入 `v-bind:`
     * 例如: `<a v-bind:href="website">The Net Ninja Website</a>`
     * 在 `html` 文件标签内增加 `html` 内容, 需要中标签内加入一个属性值 `v-html`
     * 例如: `<p v-html="websiteTag"></p>`
         * websiteTag 的属性值为 `websiteTag: '<a href="http://www.thenetninja.co.uk">The Net Ninja Website</a>'`
 
-05. vue 方法绑定
+05. vue 方法绑定 v-on
     * 在 `html` 文件标签内绑定方法时需要属性前面加入 `v-on:`
         * `v-on:` 可以简写为 `@`
     * 例如单击事件: `<button v-on:click="add()">Add a Year</button>`
@@ -82,7 +82,7 @@
         9. right
         10. alt
 
-08. vue 双向数据绑定
+08. vue 双向数据绑定 ref v-model
     * 必须使用在 `input select textarea` 标签
     * 利用标签 ref 及 v-model 实现双向绑定
     * 第一种方式 ref
@@ -106,7 +106,7 @@
         }
     })
     ```
-    * 第二种方式 
+    * 第二种方式 v-model
     ```html
     <div id="vue-app">
         <!-- 直接对 vue 对属性进行绑定 -->
@@ -139,11 +139,68 @@
     * vue 动态控制 css 样式方法 `<div v-on:click="属性名称-bool: !属性名称-bool" v-bind:class="{样式名称:属性名称-bool}"></div>`
     * css 的 class 属性需要加 `{}`
 
-11. vue 指令 v-if
+11. vue 指令 v-if v-else-if v-show
     * 使用方法: `<p v-if="error" class="error">There has been an error</p>` 如果 error 为 true 那么显示, 反之隐藏
     * 标签有: 
         * `v-if` 判断是否为真
         * `v-else-if` 如果上一个标签的 `v-if` 为假, 那么继续判断
         * `v-show` 是否显示, 该标签只是操作的 display 的值
 
-12. vue 指令 v-for
+12. vue 指令 v-for 及 template v-for
+    * 使用方法1: `<li v-for="character in characters">{{ character }}</li>` 定义一个参数, 通过 in 链接到数组
+    * 使用方法2: `<li v-for="(ninja, index) in ninjas">{{ index }} . {{ ninja.name }} - {{ ninja.age }}</li>` 定义两个参数, 第二个为序列号
+    * 使用方法3: `<template v-for="ninja in ninjas">...</template>` 可以替换 div 标签, 去除不必要的标签
+    * 使用方法4: `<div v-for="(val, key) in ninja">` 可以遍历对象 第一个参数为属性值, 第二个参数为属性名称
+    * 实现 html 循环
+
+13. vue 实战DEMO
+    * 使用 vue 实现小游戏
+
+14. vue 初始化多个 vue 对象
+    * 可以通过把对象赋给变量来区分 vue 对象
+    * 可以通过 变量名 来获取该变量的变量及方法
+
+15. vue 组件的应用
+    * 组件创建方式: 
+    ```js
+    Vue.component('TestComponent', {
+        template: '<p>组件应用</p>',        // 组件必须定义在一个主标签中, 容器中可以定义多个标签, 可以与 html 内调用 vue 对象一样的调用
+        data:function(){                   // 数据必须以方法返回形式定义
+            return {
+                name:"hello"               // 定义的数据
+            }
+        },
+        methods:{                          // 定义方法与 vue 对象形式一样
+        },
+        computed:{                         // 定义运算式与 vue 对象形式一样
+        }
+    });
+    ```
+    * html 使用方法
+    ```html
+    <TestComponent></TestComponent>
+    ```
+
+16. vue 脚手架 cli
+    * 安装 vue-cli
+        * `npm install -g vue-cli`              安装全局 vue-cli
+        * `vue init webpack project_name`       使用 vue webpack 创建项目 (注意: 必须先安装 webpack)
+            * 第一个提示: 项目名称
+            * 第二个提示: 项目描述
+            * 第三个提示: 作者
+            * 第四个提示: 选择安装内容 (enter)
+            * 第五个提示: 是否安装 vue-router (n)
+            * 第六个提示: 是否安装测试 ESLint (n)  
+            * 第七个提示: 是否安装其他测试 (n)
+            * 第八个提示: 选择测试类型 (enter)
+            * 第九个提示: 是否安装e2e测试 (n)
+            * 第十个提示: 用什么进行安装 (enter)
+        * 等待安装完成后执行命令 `cd vue-playlist` 跳入项目文件夹内
+        * 执行命令 `npm run dev` 开启项目
+
+17. vue 项目内 src 文件流程及根组件介绍
+    * 执行顺序 `index.html -> main.js -> App.vue`
+    * App.vue 文件结构
+        * `<template>` html 文件内容
+        * `<script>` js 文件内容
+        * `<style>` css 文件内容
