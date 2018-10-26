@@ -85,7 +85,7 @@
 08. vue 双向数据绑定
     * 必须使用在 `input select textarea` 标签
     * 利用标签 ref 及 v-model 实现双向绑定
-    * 第一种方式
+    * 第一种方式 ref
     ```html
     <div id="vue-app">
         <!-- 利用 ref 属性把内容传递给vuejs 当调用方法时进行修改值 -->
@@ -106,7 +106,7 @@
         }
     })
     ```
-    * 第二种方式
+    * 第二种方式 
     ```html
     <div id="vue-app">
         <!-- 直接对 vue 对属性进行绑定 -->
@@ -145,3 +145,5 @@
         * `v-if` 判断是否为真
         * `v-else-if` 如果上一个标签的 `v-if` 为假, 那么继续判断
         * `v-show` 是否显示, 该标签只是操作的 display 的值
+
+12. vue 指令 v-for
