@@ -231,3 +231,21 @@
     * 不加关键字, 就一定会影响到其他组件的样式
 
 ### 20. vue 实战DEMO(组件嵌套)
+
+21. vue 属性传值Props
+    * 父组件传子组件
+        * `<app-ninjas v-bind:ninjas="ninjas"></app-ninjas>` 父组件使用子组件时使用绑定参数
+        ```js
+        export default {
+            // 传入参数列表
+            props: {
+                // 传入的参数 (名字对应父组件传入的名字)
+                ninjas: {
+                    // 传入的类型
+                    type: Array,
+                    // 接受参数
+                    required: true
+            },
+            // props: [ "ninjas" ],     // 也可以写成数组形式
+        }
+        ```
