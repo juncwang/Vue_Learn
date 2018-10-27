@@ -254,3 +254,27 @@
     * 传值: String, Number, Boolean
     * 引用: Array, Object
     * 注意: 传值改变后不会影响其他接受值的地方的值, 传引用改变值后会影响其他接受值的地方的值
+
+23. vue 事件传值(子to父)
+    * 子组件需要注册一个事件 `$emit`
+    ```html
+    <h1 v-on:click="changeTitle">{{ title }}</h1>
+    ```
+    ```js
+    methods: {
+      changeTitle: function(){
+        this.$emit('changeTitle', 'Vue Ninjas');
+      }
+    }
+    ```
+    * 父组件获取方式 使用 `$event` 获取子组件的参数
+    ```html
+    <header v-bind:title="title" v-on:changeTitle="updateTitle($event)"></header>
+    ```
+    ```js
+    methods: {
+      updateTitle: function(updatedTitle){
+        this.title = updatedTitle;
+      }
+    }
+    ```
