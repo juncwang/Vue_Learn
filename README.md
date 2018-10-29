@@ -278,3 +278,33 @@
       }
     }
     ```
+
+24. vue 生命周期执行顺序
+    * 与 `data(), methods, props, computed` 平级方法
+    ```js
+    // 也可以写成 beforeCreate:function(){}
+    beforeCreate(){
+        alert('组件实例化之前执行的函数');
+    },
+    created(){
+        alert('组件实例化完毕, 但页面还未显示');
+    },
+    beforeMount(){
+        alert('组件挂载前, 页面还未展示, 但虚拟 DOM 已经配置');
+    },
+    mounted(){
+        alert('组件挂载后, 此方法执行后, 页面显示');
+    },
+    beforeUpdate(){
+        alert('组件更新前, 页面还未更新, 但虚拟DOM已经配置');
+    },
+    updated(){
+        alert('组件更新, 此方法执行后, 页面显示');
+    },
+    beforeDestory(){
+        alert('组件销毁前调用方法');
+    },
+    destoryed(){
+        alert('组件销毁后调用方法');
+    }
+    ```
