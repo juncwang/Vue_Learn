@@ -308,3 +308,68 @@
         alert('组件销毁后调用方法');
     }
     ```
+
+25. vue 路由和Http
+    * 路由的安装命令
+        * `npm install vue-router --save-dev`
+    * vue-resource 的安装命令
+        * `npm install vue-resource --save-dev`
+
+    * 在 `main.js` 内引入使用配置路由模块
+    ```js
+    import Vue from 'vue'
+    // 引入路由模块
+    import VueRouter from 'vue-router'
+    // 引入 vue-resource 模块
+    import VueResource from 'vue-resource'
+    import App from './App'
+    // 引入组件
+    import Home from './components/Home'
+    import HelloWorld from './components/HelloWorld'
+
+    Vue.config.productionTip = false
+    // 使用路由模块
+    Vue.use(VueRouter)
+    // 使用 VueResource 模块
+    Vue.use(VueResource)
+
+    // 配置路由模块
+    const router = new VueRouter({
+        routes:[
+            // 定义根目录上使用的组件模块
+            {path:"/",component:Home},
+            // 定义 /helloworld 模块上使用的组件模块
+            {path:"/helloworld",component:HelloWorld}
+        ],
+        // 配置后地址上不再需要使用 /#
+        mode:"history"
+        })
+
+    new Vue({
+        // 实例化内使用路由
+        router,
+        el: '#app',
+        template: '<App/>',
+        components: { App }
+    })
+    ```
+    * 在 `App.vue` 内的 `html` 内引入路由模块
+        * `<router-view></router-view>`
+    * 在 `App.vue` 内的 `html` 内使用路由进行组件跳转
+        * `<router-link to="/">Home</router-link>`
+        * 用法与 a 标签一致, to 属性与 href 一致, 使用后页面不需要自动刷新就可以显示其他页面
+    * 使用 `vue-router` 获取 `http` 请求
+        * 在组件内的 `created()` 方法内使用
+        ```js
+        created(){
+            // vue-router 获取数据的方法 - 可获取本地数据及网络数据
+            this.$http.get("http://jsonplaceholder.typicode.com/users")
+                // es6 的方式 Promise 的方法, 请求成功使用 then 失败使用 catch
+                .then((data) => {
+                // console.log(data);
+                this.users = data.body;
+                })
+        }
+        ```
+    
+    
