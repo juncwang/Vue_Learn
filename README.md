@@ -243,6 +243,8 @@
                 ninjas: {
                     // 传入的类型
                     type: Array,
+                    // 默认值
+                    default: "默认值",
                     // 接受参数
                     required: true
             },
@@ -352,6 +354,13 @@
         template: '<App/>',
         components: { App }
     })
+
+    // 如果在内不写 el: '#app', 可以在尾部加入 .$mount('#app')
+    // new Vue({
+    //    router,
+    //    template: '<App/>',
+    //    components: { App }
+    //}).$mount("#app")
     ```
     * 在 `App.vue` 内的 `html` 内引入路由模块
         * `<router-view></router-view>`
