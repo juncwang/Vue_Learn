@@ -372,4 +372,60 @@
         }
         ```
     
-    
+26. vue 跨域请求
+    * 跨域前需先配置 config/indes.js 内的 proxyTable 属性
+    ```js
+    proxyTable: {
+      '/apis': {  //使用"/apis"来代替"http://www.thenewstep.cn/" 
+        target: 'http://www.thenewstep.cn/', //源地址 
+        changeOrigin: true, //改变源 
+        pathRewrite: { 
+          '^/apis': '' //路径重写 
+          } 
+      } 
+    }
+    ```
+    * 跨域测试接口
+        * 跨域请求
+        * 跨域接口地址: http://www.thenewstep.cn/test/testToken.php
+        * 参数: username, password
+        * token: "f4c902c9ae5a2a9d8f84868ad064e706"
+        * 请求类型: post
+        * 请求头: "Content-type":"application/json"
+
+    * 使用 fectch 进行跨域请求
+    ```js
+    simClick:function(){
+        fetch("/apis/test/testToken.php",{
+          method: "post",
+          headers:{
+            "Content-type":"application/json",
+            token: "f4c902c9ae5a2a9d8f84868ad064e706"
+          },
+          body:JSON.stringify({
+            username:"juncwang",
+            password:"123456"
+          })
+        })
+        .then(result => result.json())
+        .then(data => console.log(data))
+    }
+    ```
+    * 使用 axios 进行跨域请求
+        * 使用前需安装 `npm install axios`
+        * 在 `main.js` 内配置如下
+        * `import axios from 'axios'` 全局引入
+        * `axios.defaults.headers.common['token'] = 'f4c902c9ae5a2a9d8f84868ad064e706'` 配置头文件内的 token
+        * `axios.defaults.headers.post['Content-type'] = 'application/json'` 配置头文件内的 content-type
+        * `Vue.prototype.$axios = axios` 把 axios 给予 vue
+
+    ```js
+     this.$axios.post("/apis/test/testToken.php",{
+       username:"juncwang",
+       password:"123456"
+       })
+       .then(data => console.log(data))
+       // axios 没有 json 方法
+    ```
+
+    * 实例请查看 `26-vue 跨域请求`
