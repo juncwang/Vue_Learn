@@ -275,6 +275,7 @@
     <header v-bind:title="title" v-on:changeTitle="updateTitle($event)"></header>
     ```
     ```js
+    * 接收方法必须有给形参进行接受
     methods: {
       updateTitle: function(updatedTitle){
         this.title = updatedTitle;
