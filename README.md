@@ -270,6 +270,7 @@
     }
     ```
     * 父组件获取方式 使用 `$event` 获取子组件的参数
+      * 也可以不传参数
     ```html
     <header v-bind:title="title" v-on:changeTitle="updateTitle($event)"></header>
     ```
