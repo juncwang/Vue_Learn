@@ -1,5 +1,7 @@
 # Vue_Learn
 
+# Vue 2.X
+
 01. vue 的引入及安装
     * 在 html 头文件内引入 `<script src="https://unpkg.com/vue"></script>` 就可使用 vue.js
     * 最新版本 vue 可登陆 `https://cn.vuejs.org` -> 起步  -> 安装
@@ -440,3 +442,12 @@
     ```
 
     * 实例请查看 `26-vue 跨域请求`
+
+
+# Vue 3.x
+
+01. vue 3.x 安装方式
+   1. 访问网页 `https://github.com/vuejs/vue-cli` 
+      * 进入网页后找到 `docs` 文件夹并进入, 并根据文件夹说明文件 `README.md` 进行安装最新版
+      
+      
