@@ -477,5 +477,6 @@
             * `data(){ return {变量名:process.env.VUE_APP_变量名}` 通过 data 取出环境变量以便使用
             
 07. vue 3.x 独立运行 vue 文件
-   * 
+   * `npm install -g @vue/cli-service-global` 安装 vue 全局服务
+   * `vue serve 文件路径及文件名.vue` 独立运行 vue 文件
       
