@@ -450,7 +450,8 @@
    * 访问网页 `https://github.com/vuejs/vue-cli` 
       * 进入网页后找到 `docs` 文件夹并进入
       * 根据文件夹说明文件 `README.md` 进行安装最新版 或 `npm install -g @vue/cli`
-      * 根据文件夹说明文件 `README.md` 创建 `vue 3.x` 项目 或 `vue create my-project` or `vue ui`
+      * 根据文件夹说明文件 `README.md` 创建 `vue 3.x` 项目 或 `vue create my-project`
+      * `vue ui` 通过图形化管理界面管理及创建项目
       
 02. vue 3.x 创建项目配置文件 `.vuerc`
    * 在系统 (win: C:\Users\UserName\ | mac: UserName/ ) 用户路径下的 `.vuerc` 文件(可能是隐藏文件)
@@ -474,4 +475,7 @@
       * `.env.production`  生成环境变量文件
          * `VUE_APP_变量名 = 变量值` 文件内对环境变量的定义
             * `data(){ return {变量名:process.env.VUE_APP_变量名}` 通过 data 取出环境变量以便使用
+            
+07. vue 3.x 独立运行 vue 文件
+   * 
       
