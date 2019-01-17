@@ -449,7 +449,7 @@
 01. vue 3.x 安装方式
    * 访问网页 `https://github.com/vuejs/vue-cli` 
       * 进入网页后找到 `docs` 文件夹并进入
-      * 根据文件夹说明文件 `README.md` 进行安装最新版
-      * 根据文件夹说明文件 `README.md` 创建 `vue 3.x` 项目
+      * 根据文件夹说明文件 `README.md` 进行安装最新版 `npm install -g @vue/cli`
+      * 根据文件夹说明文件 `README.md` 创建 `vue 3.x` 项目 `vue create my-project` or `vue ui`
       
       
