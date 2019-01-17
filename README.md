@@ -483,30 +483,40 @@
 08. vue 3.x 配置文件
    * `vue.config.js` 在项目根目录下创建此文件
       ```js
+      // 获取本地数据
+      const goods = require('./data/goods.json')
+
       module.exports = {
-       // 基础配置 ====================================================================
+      // 基础配置 ====================================================================
        baseUrl: '/',   // 根路径
-       outputDis: 'dist',  // 构建输出目录
+       outputDir: 'dist',  // 构建输出目录
        assetsDir: 'assets',    // 静态资源目录(js,css,img,fonts)
        lintOnSave: false,  // 是否开启 eslint 保存检测, 有效值: true || false || 'error'
 
        // 服务器配置 =================================================================
        devServer: {
-                 open: false,    // 开启服务后是否自动弹出页面
-                 host: 'localhost',  // 主机名称
-                 port: 8080, // 默认端口号
-                 https: false,    // 是否启用 https
-                 hotOnly: false, // 是否启用 vue 热更新 (webpack 已经实现可以不开启)
-                 proxy: {    // 配置跨域
-                     '/api':{
-                         target: 'http//localhost:5000/api/', // 设置跨域地址
-                         ws: true,   // 是否实现跨域
-                         changOrigin: true,  
-                         pathRewrite: {   // 路径重写
-                             '^/api' : ''
-                         }
-                     }
-                 }
-             }
-         }
+              open: true,    // 开启服务后是否自动弹出页面
+              host: 'localhost',  // 主机名称
+              port: 8080, // 默认端口号
+              https: false,    // 是否启用 https
+              hotOnly: false, // 是否启用 vue 热更新 (webpack 已经实现可以不开启)
+              proxy: {    // 配置跨域
+                  '/api':{
+                      target: 'http//localhost:5000/api/', // 设置跨域地址
+                      ws: true,   // 是否实现跨域
+                      changOrigin: true,  
+                      pathRewrite: {  // 路径重写
+                          '^/api' : ''
+                      }
+                  }
+              },
+              before(app) {   // 数据接口配置
+                  // 配置数据访问路径
+                  // http//localhost:8080/api/goods
+                  app.get('/api/goods', (req, res)=> {
+                      res.json(goods) // 调用接口时返回 goods 数据
+                  })
+              }
+          }
+      }
       ```
