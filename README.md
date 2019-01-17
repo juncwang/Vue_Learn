@@ -452,4 +452,8 @@
       * 根据文件夹说明文件 `README.md` 进行安装最新版 `npm install -g @vue/cli`
       * 根据文件夹说明文件 `README.md` 创建 `vue 3.x` 项目 `vue create my-project` or `vue ui`
       
+02. vue 3.x 创建项目配置文件 `.vuerc`
+   * 在系统 (win: C:\Users\UserName\ | mac: UserName/ ) 用户路径下的 `.vuerc` 文件(可能是隐藏文件)
+   * 该文件保存项目创建时的配置信息, 删除或清空内容后, 项目无法创建 (如果需要清空, 必须保留一个空对象 `{ }`）
+      
       
