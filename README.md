@@ -446,6 +446,33 @@
     ```
 
     * 实例请查看 `26-vue 跨域请求`
+    
+### 自定义指令
+
+```js
+// 在 main.js 内添加代码
+
+Vue.directive('指令名称',{
+  bind(el,binding,vnode){
+    // 表示传入到参数
+    if(binding.value == 'wide'){
+      // 表示所在到元素
+      el.style.maxWidth = '1260px'
+    }else if(binding.value == 'narrow'){
+      el.style.maxWidth = '560px'
+    }
+    // 表示属性
+    if(binding.arg == 'column'){
+      el.style.background = '#6677cc'
+      el.style.padding = '20px'
+    }
+  }
+})
+
+// 使用如下
+// <元素 v-指令名称:属性="参数值"></元素>
+// 注意: 参数如果是字符串, 那么传入是应为 "'字符串参数'"
+```
 
 
 # Vue 3.x
