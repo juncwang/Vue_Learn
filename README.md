@@ -384,6 +384,10 @@
                 })
         }
         ```
+    * `vue-router` 获取数据后的方法
+         * 获取数据后得到 `Response` 
+         * 使用 `.属性名` 可以获取到返回来到数据
+         * 使用 `slice(start, end)` 可以对数组数据从多少取到多少个数据
     
 26. vue 跨域请求
     * 跨域前需先配置 config/indes.js 内的 proxyTable 属性
@@ -467,6 +471,7 @@
    
 05. vue 插件库
    * `vuetify` vue ui 库
+   * `vue-router` vue 网络请求 库
    
 06. vue 3.x 环境变量
    * 在项目根路径下创建以下环境变量文件
