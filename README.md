@@ -449,6 +449,7 @@
     
 ### 自定义指令
 
+* 全局
 ```js
 // 在 main.js 内添加代码
 
@@ -472,6 +473,38 @@ Vue.directive('指令名称',{
 // 使用如下
 // <元素 v-指令名称:属性="参数值"></元素>
 // 注意: 参数如果是字符串, 那么传入是应为 "'字符串参数'"
+```
+
+* 局部
+```js
+// 与 data() 同级属性
+directives:{
+        'rainbow':{
+            bind(el,binding,vnode){
+                el.style.color = '#' + Math.random().toString(16).slice(2,8)
+            }
+        }
+    }
+```
+
+### 自定义过滤器
+
+* 全局
+```js
+Vue.filter('过滤器名称', function(value){
+  return value.slice(0,100) + '...'
+})
+// 使用方式: {{ 变量 | 过滤器名称 }}
+```
+
+* 局部
+```js
+// 与 data() 同级属性
+filters:{
+        "to-uppercase":function(value){
+            return value.toUpperCase();
+        }
+    }
 ```
 
 
