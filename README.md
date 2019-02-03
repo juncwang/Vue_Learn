@@ -444,6 +444,8 @@
        .then(data => console.log(data))
        // axios 没有 json 方法
     ```
+    * axios 其他配置方法
+      * 在 main.js 内 配置 `axios.defaults.baseURL = "默认地址", 配置后就不需要再写入地址前缀、直接使用接口名
 
     * 实例请查看 `26-vue 跨域请求`
     
