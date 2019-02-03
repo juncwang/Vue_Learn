@@ -531,7 +531,9 @@ filters:{
    
 05. vue 插件库
    * `vuetify` vue ui 库
-   * `vue-router` vue 网络请求 库
+   * `vue-router` vue 路由 库
+   * `axios` vue 网络请求 库
+   * `vue-resource` vue 网络请求 库
    
 06. vue 3.x 环境变量
    * 在项目根路径下创建以下环境变量文件
